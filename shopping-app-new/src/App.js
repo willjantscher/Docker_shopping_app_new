@@ -1,11 +1,9 @@
 // Will Jantscher and Rex Ayers
-// npm init
-// npm install
-// npm install express
+
 // npx create-react-app shopping-app
 
-// https://github.com/willjantscher/Docker_Shopping_app.git
-// to run: npm start in /src cd
+// https://github.com/willjantscher/Docker_shopping_app_new.git
+// to run: npm start in shopping-app-new
 
 
 import './App.css';
