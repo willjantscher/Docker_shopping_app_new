@@ -1,14 +1,16 @@
 //display the list
 
 const List = (props) => {
+    var i = -1;
     let shoppingList = props.list.map((item) => {
+        i++;
         return (
                 <tr>
                     <td>{item.name}</td>
                     <td>{item.qty}</td>
                     <td>{item.unit}</td>
-                    <td><input onClick={props.onAddToCart}  type="button" value="Add to cart"/></td>
-                    <td><input onClick={props.onRemoveItem} type="button" value="Remove item"/></td>
+                    <td><input onClick={props.onAddToCart} id={i} type="button" value="Add to cart"/></td>
+                    <td><input onClick={props.onRemoveItem} id={i} type="button" value="Remove item"/></td>
                 </tr>
         )
     })
@@ -27,7 +29,7 @@ const List = (props) => {
             </thead>
             <tbody>{shoppingList}</tbody>
         </table>
-    )
+    )   
 }
 
 export default List;

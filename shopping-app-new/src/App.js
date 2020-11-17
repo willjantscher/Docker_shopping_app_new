@@ -6,10 +6,14 @@
 // to run: npm start in shopping-app-new
 
 
+// to run with docker
+// docker run -p 3001:3000 willjantscher/shopping-app-new:latest      
+
 import './App.css';
 import React from 'react'
 import List from './list'
 import AddItem from './addItem'
+import ShoppingCart from './shoppingCart'
 
 
 
@@ -23,17 +27,23 @@ class App extends React.Component  {
         unit: 'bunch',
       }], //item, qty, unit
       tempItem: [],
+      cart:[{}],
     }
   }
 
 
 handleAddToCart = (e) => {
-  console.log('adding to cart')
-  console.log(e.target)
+  // console.log('adding to cart')
+  // console.log(e.target.id)
 }
 
 handleRemoveItem = (e) => {
-  console.log('removing item')
+  // console.log('removing item')
+  let tempItem = this.state.list[e.target.id];
+  console.log(tempItem)
+  let tempList = this.state.list.filter((item) => item !== tempItem);
+  console.log(tempList)
+  this.setState({list: tempList});
 }
 
 handleInputChange = (e) => {
@@ -63,6 +73,8 @@ handleAddItem = (e) => {
       <div className="App">
       <header className="App-header">
         <p>
+          <ShoppingCart cart={this.state.cart} />
+          <br></br>
           <List
             list={this.state.list}
             onAddToCart={this.handleAddToCart}
